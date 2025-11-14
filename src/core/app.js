@@ -1,18 +1,11 @@
-require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
-const routes = require('../app/routes');
-
 const app = express();
+const routes = require('../app/routes/index');
 
-// Middleware
-app.use(cors());
-app.use(helmet());
+// middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-// Rute principale
+// routes
 app.use('/api', routes);
 
 module.exports = app;
